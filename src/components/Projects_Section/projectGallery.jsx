@@ -5,7 +5,7 @@ import PintOS from "./project_images/PintOS.png";
 import flower from "./project_images/flower exchange.png";
 import sriflix from "./project_images/Sri Flix.png";
 import cStore from "./project_images/Cstore.png";
-import TradeVision from "./project_images/TradeVision.png";
+import TradeVision from "./project_images/Tradevision.png";
 import PulseX from "./project_images/PulseX.png";
 import { FaReact, FaNodeJs, FaDatabase, FaHtml5, FaCss3, FaDocker} from 'react-icons/fa';
 import { SiFlask, SiTensorflow, SiScikitlearn, SiMongodb, SiFirebase, SiPandas, SiCplusplus } from 'react-icons/si';
