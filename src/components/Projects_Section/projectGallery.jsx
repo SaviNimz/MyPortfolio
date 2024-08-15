@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import ProjectCard from './ProjectCard';
+import ProjectCard from './projectCard';
 import PintOS from "./project_images/PintOS.png";
 import flower from "./project_images/flower exchange.png";
 import sriflix from "./project_images/Sri Flix.png";

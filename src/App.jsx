@@ -1,7 +1,7 @@
 import React from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
 import Navbar from './components/navBar';
-import Introduction from './components/Introduction';
+import Introduction from './components/introduction';
 import Experience from './components/experience';
 import Skills from './components/skills';
 import ProjectGallery from './components/Projects_Section/projectGallery';
