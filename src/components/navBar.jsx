@@ -1,28 +1,9 @@
-import React, { useState } from 'react';
-import styled, { createGlobalStyle, keyframes } from 'styled-components';
-import { FaBars } from 'react-icons/fa'; // Import the hamburger icon
+import React from 'react';
+import styled, { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
   html {
     scroll-behavior: smooth;
-  }
-`;
-
-const slideIn = keyframes`
-  from {
-    transform: translateX(100%);
-  }
-  to {
-    transform: translateX(0);
-  }
-`;
-
-const slideOut = keyframes`
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(100%);
   }
 `;
 
@@ -34,6 +15,8 @@ const Nav = styled.nav`
   top: 0;
   z-index: 1000;
   border-bottom: 1px solid #dee2e6;
+  overflow-x: hidden; /* Prevent horizontal overflow */
+  display: flex; /* Add display flex to align items properly */
 
   @media (max-width: 768px) {
     padding: 0.5rem 1rem;
@@ -47,21 +30,10 @@ const NavList = styled.ul`
   list-style: none;
   margin: 0;
   padding: 0;
+  width: 100%; /* Ensure it spans full width */
 
   @media (max-width: 768px) {
-    flex-direction: column;
-    position: absolute;
-    top: 60px;
-    right: 0;
-    background: #f8f9fa;
-    width: 250px; /* Adjusted the width */
-    height: auto; /* No longer takes full height */
-    padding: 1.5rem 0; /* Added padding for spacing */
-    border-left: 1px solid #dee2e6;
-    border-bottom: 1px solid #dee2e6;
-    transform: ${({ isOpen }) => (isOpen ? 'translateX(0)' : 'translateX(100%)')};
-    animation: ${({ isOpen }) => (isOpen ? slideIn : slideOut)} 0.3s ease forwards;
-    display: flex;
+    display: none; /* Hide navigation menu on mobile */
   }
 `;
 
@@ -93,33 +65,12 @@ const NavLink = styled.a`
   }
 `;
 
-const HamburgerIcon = styled(FaBars)`
-  display: none;
-  font-size: 1.8rem; /* Increased the size */
-  cursor: pointer;
-  color: #495057;
-
-  @media (max-width: 768px) {
-    display: block;
-    position: absolute;
-    right: 2rem;
-    top: 1.2rem;
-  }
-`;
-
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
-
   return (
     <>
       <GlobalStyle />
       <Nav>
-        <HamburgerIcon onClick={toggleMenu} />
-        <NavList isOpen={isOpen}>
+        <NavList>
           <NavItem><NavLink href="#introduction">Introduction</NavLink></NavItem>
           <NavItem><NavLink href="#skills">Skills</NavLink></NavItem>
           <NavItem><NavLink href="#projects">Projects</NavLink></NavItem>
