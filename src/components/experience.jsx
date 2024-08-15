@@ -45,16 +45,26 @@ const ListItem = styled.li`
       background-color: #f1f1f1;
     }
   `}
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 
 const Icon = styled.div`
   font-size: 2rem;
   color: #007bff;
   margin-right: 1rem;
+
+  @media (max-width: 768px) {
+    margin-right: 0;
+    margin-bottom: 1rem;
+  }
 `;
 
 const Content = styled.div`
   flex: 1;
+
   h3 {
     margin: 0;
     font-size: 1.5rem;
@@ -89,7 +99,7 @@ const DropdownContent = styled.div`
 
   @media (max-width: 768px) {
     padding-left: 0;
-    max-height: 300px;  // Adjust based on your layout and needs
+    max-height: ${({ isActive }) => (isActive ? '300px' : '0')};
     overflow-y: auto;
 
     p::before {
@@ -103,6 +113,10 @@ const DropdownIcon = styled.div`
   color: #007bff;
   transition: transform 0.3s ease;
   transform: ${({ isActive }) => (isActive ? 'rotate(180deg)' : 'rotate(0)')};
+
+  @media (max-width: 768px) {
+    margin-left: auto;
+  }
 `;
 
 const Experience = () => {
