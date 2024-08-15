@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { FaCode, FaGlobe, FaTrophy, FaChevronDown,FaBook  } from 'react-icons/fa';
+import { FaGlobe, FaTrophy, FaChevronDown,FaBook  } from 'react-icons/fa';
 
 const Section = styled.section`
   padding: 4rem 2rem;
