@@ -164,16 +164,14 @@ const ModalContent = styled.div`
   border-radius: 8px;
   max-width: 600px;
   width: 100%;
-  height: 60%; /* Increased height */
-  overflow-y: hidden;
+  height: 60%; /* Adjust height as needed */
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 
   img {
-    max-height: 40%; /* Reduced image height */
+    max-height: 40%; /* Adjust image height as needed */
     object-fit: contain;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
   }
 
   h2 {
@@ -182,25 +180,56 @@ const ModalContent = styled.div`
   }
 
   p {
-    flex-grow: 1; /* Allow the paragraph to take up remaining space */
-    overflow-y: auto; /* Make sure to enable scrolling if content overflows */
+    flex: 1; /* Allow description to expand */
+    margin-bottom: 1rem; /* Margin to provide space before the icons and button */
+    overflow: hidden; /* Hide overflow to remove scrollbar */
+    text-overflow: ellipsis; /* Optional: add ellipsis if text overflows */
+    white-space: pre-wrap; /* Maintain whitespace formatting */
+  }
+
+  Technologies {
+    margin-bottom: 1rem; /* Margin to provide space before the button */
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap; /* Allow icons to wrap if there are many */
+  }
+
+  IconWrapper {
+    font-size: 24px;
+    color: inherit; /* Inherit the color from the icon itself */
   }
 
   a {
     align-self: flex-end;
-    margin-top: 1rem;
-    color: #007bff;
+    background-color: #f0f0f0;
+    color: #000;
+    padding: 10px 20px;
+    border-radius: 5px;
     text-decoration: none;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0); /* Initial shadow */
+  
+    &:hover {
+      background-color: #e0e0e0;
+      transform: scale(1.05);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Subtle shadow effect */
+    }
+
+    &:active {
+      background-color: #d0d0d0;
+    }
   }
 
   @media (max-width: 768px) {
     padding: 10px;
     margin: 0 10px;
     max-width: 90%;
-    height: 65%;
+    height: auto; /* Allow height to adjust for smaller screens */
 
     img {
-      max-height: 40%;
+      max-height: 30%;
     }
 
     h2 {
