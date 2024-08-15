@@ -22,11 +22,6 @@ const List = styled.ul`
   margin: 0;
   max-width: 800px;
   margin: 0 auto;
-
-  @media (max-width: 768px) {
-    padding: 0;
-    margin: 0;
-  }
 `;
 
 const ListItem = styled.li`
@@ -74,7 +69,7 @@ const Content = styled.div`
 
 const DropdownContent = styled.div`
   max-height: ${({ isActive }) => (isActive ? '500px' : '0')};
-  overflow: hidden;
+  overflow-y: ${({ isActive }) => (isActive ? 'auto' : 'hidden')};
   transition: max-height 0.3s ease;
   padding-left: 1.5rem;
   position: relative;
@@ -94,6 +89,8 @@ const DropdownContent = styled.div`
 
   @media (max-width: 768px) {
     padding-left: 0;
+    max-height: 300px;  // Adjust based on your layout and needs
+    overflow-y: auto;
 
     p::before {
       content: none;
