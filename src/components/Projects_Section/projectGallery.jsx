@@ -173,7 +173,7 @@ const ModalContent = styled.div`
   img {
     max-height: 40%; /* Reduced image height */
     object-fit: contain;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
   }
 
   h2 {

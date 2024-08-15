@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { FaGlobe, FaTrophy, FaChevronDown,FaBook  } from 'react-icons/fa';
+import { FaGlobe, FaTrophy, FaChevronDown, FaBook } from 'react-icons/fa';
 
 const Section = styled.section`
   padding: 4rem 2rem;
@@ -22,6 +22,11 @@ const List = styled.ul`
   margin: 0;
   max-width: 800px;
   margin: 0 auto;
+
+  @media (max-width: 768px) {
+    padding: 0;
+    margin: 0;
+  }
 `;
 
 const ListItem = styled.li`
@@ -46,6 +51,7 @@ const ListItem = styled.li`
     }
   `}
 `;
+
 const Icon = styled.div`
   font-size: 2rem;
   color: #007bff;
@@ -71,6 +77,7 @@ const DropdownContent = styled.div`
   overflow: hidden;
   transition: max-height 0.3s ease;
   padding-left: 1.5rem;
+  position: relative;
 
   p {
     margin: 0.5rem 0;
@@ -84,7 +91,16 @@ const DropdownContent = styled.div`
       left: -1.5rem;
     }
   }
+
+  @media (max-width: 768px) {
+    padding-left: 0;
+
+    p::before {
+      content: none;
+    }
+  }
 `;
+
 const DropdownIcon = styled.div`
   font-size: 1.5rem;
   color: #007bff;
@@ -136,21 +152,21 @@ const Experience = () => {
           <DropdownIcon isActive={activeIndex === 2}><FaChevronDown /></DropdownIcon>
         </ListItem>
         <ListItem
-        isActive={activeIndex === 0}
-        onClick={() => handleToggle(0)}
+          isActive={activeIndex === 0}
+          onClick={() => handleToggle(0)}
         >
-        <Icon><FaBook /></Icon> {/* Updated icon */}
-        <Content>
+          <Icon><FaBook /></Icon>
+          <Content>
             <h3>Courses and Certifications</h3>
             <DropdownContent isActive={activeIndex === 0}>
-            <p><strong>Machine Learning Specialization - Coursera:</strong> Completed a 3-course specialization covering fundamental and advanced concepts in machine learning.</p>
-            <p><strong>AWS Machine Learning Foundations:</strong> Gained foundational knowledge of machine learning concepts and practices, and the use of AWS tools and services for building and scaling machine learning solutions.</p>
-            <p><strong>High Performance C++ Software Development:</strong> Completed a workshop on high-performance and mission-critical software development using C++ conducted by LSEG (London Stock Exchange Group).</p>
-            <p><strong>Deep Learning Specialization - Coursera:</strong> Ongoing</p>
-            <p><strong>IBM Introduction to DevOps:</strong> Ongoing</p>
+              <p><strong>Machine Learning Specialization - Coursera:</strong> Completed a 3-course specialization covering fundamental and advanced concepts in machine learning.</p>
+              <p><strong>AWS Machine Learning Foundations:</strong> Gained foundational knowledge of machine learning concepts and practices, and the use of AWS tools and services for building and scaling machine learning solutions.</p>
+              <p><strong>High Performance C++ Software Development:</strong> Completed a workshop on high-performance and mission-critical software development using C++ conducted by LSEG (London Stock Exchange Group).</p>
+              <p><strong>Deep Learning Specialization - Coursera:</strong> Ongoing</p>
+              <p><strong>IBM Introduction to DevOps:</strong> Ongoing</p>
             </DropdownContent>
-        </Content>
-        <DropdownIcon isActive={activeIndex === 0}><FaChevronDown /></DropdownIcon>
+          </Content>
+          <DropdownIcon isActive={activeIndex === 0}><FaChevronDown /></DropdownIcon>
         </ListItem>
       </List>
     </Section>
